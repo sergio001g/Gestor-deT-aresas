@@ -4,7 +4,7 @@
 
 Gestor de Tareas Avanzado es una aplicación de escritorio potente y fácil de usar, diseñada para ayudarte a organizar tus tareas, proyectos y tiempo de manera eficiente. Con una interfaz intuitiva y características avanzadas, esta aplicación te ayudará a aumentar tu productividad y mantener el control de tus responsabilidades diarias.
 
-![Captura de pantalla de la aplicación](screenshot.png)
+
 
 ## Características principales (Versión Gratuita) 🆓
 
