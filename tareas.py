@@ -12,7 +12,7 @@ from PyQt6.QtCore import Qt, QTimer, QDate, QTime, QUrl
 from PyQt6.QtGui import QIcon, QColor
 from PyQt6.QtMultimedia import QMediaPlayer, QAudioOutput
 from PyQt6.QtWebEngineWidgets import QWebEngineView
-#from PyQt6.QtChart import QChart, QChartView, QPieSeries # Eliminada según la actualización 1
+
 import pytesseract
 from PIL import Image
 import cv2
@@ -20,7 +20,7 @@ import numpy as np
 
 class CloudSync:
     def __init__(self):
-        self.api_url = "https://api.example.com/sync"  # Reemplaza con tu API real
+        self.api_url = "https://api.example.com/sync"  # aca api si quieren 
 
     def sync_tasks(self, tasks):
         response = requests.post(self.api_url, json=tasks)
@@ -282,13 +282,13 @@ class PomodoroTimer(QWidget):
     def init_ui(self):
         layout = QVBoxLayout()
         
-        # Etiqueta de tiempo
+     
         self.time_label = QLabel("25:00")
         self.time_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.time_label.setStyleSheet("font-size: 48px; font-weight: bold;")
         layout.addWidget(self.time_label)
 
-        # Botones de control
+     
         button_layout = QHBoxLayout()
         
         self.start_button = QPushButton("Iniciar")
@@ -301,7 +301,7 @@ class PomodoroTimer(QWidget):
 
         layout.addLayout(button_layout)
 
-        # Botones para ajustar el tiempo
+  
         adjust_layout = QHBoxLayout()
         
         self.decrease_button = QPushButton("-")
@@ -314,7 +314,7 @@ class PomodoroTimer(QWidget):
 
         layout.addLayout(adjust_layout)
 
-        # Etiqueta de modo
+       
         self.mode_label = QLabel("Modo: Trabajo")
         self.mode_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         layout.addWidget(self.mode_label)
@@ -389,12 +389,12 @@ class MainWindow(QMainWindow):
         main_layout = QHBoxLayout()
         central_widget.setLayout(main_layout)
 
-        # Panel izquierdo
+     
         left_panel = QWidget()
         left_layout = QVBoxLayout()
         left_panel.setLayout(left_layout)
 
-        # Selector de proyecto y categoría
+      
         self.project_selector = QComboBox()
         self.project_selector.addItem("Todos los proyectos")
         self.project_selector.currentTextChanged.connect(self.load_tasks)
@@ -413,7 +413,7 @@ class MainWindow(QMainWindow):
         left_layout.addWidget(QLabel("Tareas:"))
         left_layout.addWidget(self.task_list)
 
-        # Botones
+   
         button_layout = QHBoxLayout()
         add_button = QPushButton('Agregar Tarea')
         add_button.clicked.connect(self.add_task)
@@ -432,10 +432,10 @@ class MainWindow(QMainWindow):
         button_layout.addWidget(generate_report_button)
         left_layout.addLayout(button_layout)
 
-        # Panel derecho
+    
         right_panel = QTabWidget()
 
-        # Pestaña de detalles
+       
         details_tab = QWidget()
         details_layout = QVBoxLayout()
         details_tab.setLayout(details_layout)
@@ -447,7 +447,7 @@ class MainWindow(QMainWindow):
 
         right_panel.addTab(details_tab, "Detalles")
 
-        # Pestaña de calendario
+      
         calendar_tab = QWidget()
         calendar_layout = QVBoxLayout()
         calendar_tab.setLayout(calendar_layout)
@@ -461,7 +461,7 @@ class MainWindow(QMainWindow):
 
         right_panel.addTab(calendar_tab, "Calendario")
 
-        # Pestaña de estadísticas
+       
         stats_tab = QWidget()
         stats_layout = QVBoxLayout()
         stats_tab.setLayout(stats_layout)
@@ -472,12 +472,11 @@ class MainWindow(QMainWindow):
         self.progress_bar = QProgressBar()
         stats_layout.addWidget(self.progress_bar)
 
-        #self.chart_view = QChartView() # Eliminada según la actualización 3
-        #stats_layout.addWidget(self.chart_view) # Eliminada según la actualización 3
+     
 
         right_panel.addTab(stats_tab, "Estadísticas")
 
-        # Pestaña de Pomodoro
+      
         pomodoro_tab = QWidget()
         pomodoro_layout = QVBoxLayout()
         pomodoro_tab.setLayout(pomodoro_layout)
@@ -491,7 +490,7 @@ class MainWindow(QMainWindow):
 
         right_panel.addTab(pomodoro_tab, "Pomodoro")
 
-        # Agregar paneles al diseño principal
+     
         splitter = QSplitter(Qt.Orientation.Horizontal)
         splitter.addWidget(left_panel)
         splitter.addWidget(right_panel)
@@ -502,12 +501,12 @@ class MainWindow(QMainWindow):
         self.load_tasks()
         self.update_stats()
 
-        # Configurar temporizador para actualizar las tareas
+       
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.check_due_dates)
-        self.timer.start(60000)  # Comprobar cada minuto
+        self.timer.start(60000)  
 
-        # Configurar reproductor de audio
+        
         self.audio_player = QMediaPlayer()
         self.audio_output = QAudioOutput()
         self.audio_player.setAudioOutput(self.audio_output)
@@ -668,8 +667,8 @@ class MainWindow(QMainWindow):
 
 def main():
     app = QApplication(sys.argv)
-    app.setStyle('Fusion')  # Establece un estilo moderno
-    app.setWindowIcon(QIcon('icon.png'))  # Asegúrate de tener un archivo icon.png en el directorio del proyecto
+    app.setStyle('Fusion') 
+    app.setWindowIcon(QIcon('icon.png'))  
     
     window = MainWindow()
     window.show()
